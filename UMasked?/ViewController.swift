@@ -109,7 +109,6 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         print("----------")
         
         let imgLayer = CALayer()
-        
         return imgLayer
     }
 
