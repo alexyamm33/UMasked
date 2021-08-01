@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B5DEB5326B5BAE60060F2DC /* MaskType.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3B5DEB5226B5BAE60060F2DC /* MaskType.mlmodel */; };
+		3B5DEB5526B5F3410060F2DC /* MaskType_new Iteration5400.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3B5DEB5426B5F3410060F2DC /* MaskType_new Iteration5400.mlmodel */; };
+		3B5DEB5726B5FAB00060F2DC /* MaskType_new.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3B5DEB5626B5FAB00060F2DC /* MaskType_new.mlmodel */; };
 		3BC6DB2026B2F7FD0082F6CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC6DB1F26B2F7FD0082F6CF /* AppDelegate.swift */; };
 		3BC6DB2226B2F7FD0082F6CF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC6DB2126B2F7FD0082F6CF /* SceneDelegate.swift */; };
 		3BC6DB2426B2F7FD0082F6CF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC6DB2326B2F7FD0082F6CF /* ViewController.swift */; };
@@ -15,6 +18,12 @@
 		3BC6DB2C26B2F8000082F6CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BC6DB2A26B2F8000082F6CF /* LaunchScreen.storyboard */; };
 		3BC6DB3726B2F8000082F6CF /* UMasked_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC6DB3626B2F8000082F6CF /* UMasked_Tests.swift */; };
 		3BC6DB4226B2F8000082F6CF /* UMasked_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC6DB4126B2F8000082F6CF /* UMasked_UITests.swift */; };
+		3BC6DB5226B3086D0082F6CF /* UMaskedold.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3BC6DB5126B3086D0082F6CF /* UMaskedold.mlmodel */; };
+		3BC6DB5426B30B050082F6CF /* SqueezeNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3BC6DB5326B30B050082F6CF /* SqueezeNet.mlmodel */; };
+		3BC6DB5626B30B6F0082F6CF /* UMasked1.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3BC6DB5526B30B6F0082F6CF /* UMasked1.mlmodel */; };
+		3BC6DB5826B30B780082F6CF /* UMasked2.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3BC6DB5726B30B780082F6CF /* UMasked2.mlmodel */; };
+		3BC6DB5A26B30B840082F6CF /* MaskType 1.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3BC6DB5926B30B840082F6CF /* MaskType 1.mlmodel */; };
+		3BC6DB5C26B31C1B0082F6CF /* Road Sign Object Detector 1.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3BC6DB5B26B31C1B0082F6CF /* Road Sign Object Detector 1.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +44,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3B5DEB5226B5BAE60060F2DC /* MaskType.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MaskType.mlmodel; sourceTree = "<group>"; };
+		3B5DEB5426B5F3410060F2DC /* MaskType_new Iteration5400.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "MaskType_new Iteration5400.mlmodel"; sourceTree = "<group>"; };
+		3B5DEB5626B5FAB00060F2DC /* MaskType_new.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MaskType_new.mlmodel; sourceTree = "<group>"; };
 		3BC6DB1C26B2F7FD0082F6CF /* UMasked?.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UMasked?.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BC6DB1F26B2F7FD0082F6CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3BC6DB2126B2F7FD0082F6CF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +61,12 @@
 		3BC6DB3D26B2F8000082F6CF /* UMasked?UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "UMasked?UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BC6DB4126B2F8000082F6CF /* UMasked_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UMasked_UITests.swift; sourceTree = "<group>"; };
 		3BC6DB4326B2F8000082F6CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3BC6DB5126B3086D0082F6CF /* UMaskedold.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = UMaskedold.mlmodel; path = ../../../UMaskedold.mlmodel; sourceTree = "<group>"; };
+		3BC6DB5326B30B050082F6CF /* SqueezeNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = SqueezeNet.mlmodel; sourceTree = "<group>"; };
+		3BC6DB5526B30B6F0082F6CF /* UMasked1.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = UMasked1.mlmodel; sourceTree = "<group>"; };
+		3BC6DB5726B30B780082F6CF /* UMasked2.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = UMasked2.mlmodel; sourceTree = "<group>"; };
+		3BC6DB5926B30B840082F6CF /* MaskType 1.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "MaskType 1.mlmodel"; sourceTree = "<group>"; };
+		3BC6DB5B26B31C1B0082F6CF /* Road Sign Object Detector 1.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "Road Sign Object Detector 1.mlmodel"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,8 +117,17 @@
 		3BC6DB1E26B2F7FD0082F6CF /* UMasked? */ = {
 			isa = PBXGroup;
 			children = (
+				3B5DEB5626B5FAB00060F2DC /* MaskType_new.mlmodel */,
+				3B5DEB5426B5F3410060F2DC /* MaskType_new Iteration5400.mlmodel */,
+				3B5DEB5226B5BAE60060F2DC /* MaskType.mlmodel */,
+				3BC6DB5B26B31C1B0082F6CF /* Road Sign Object Detector 1.mlmodel */,
+				3BC6DB5326B30B050082F6CF /* SqueezeNet.mlmodel */,
+				3BC6DB5126B3086D0082F6CF /* UMaskedold.mlmodel */,
 				3BC6DB1F26B2F7FD0082F6CF /* AppDelegate.swift */,
 				3BC6DB2126B2F7FD0082F6CF /* SceneDelegate.swift */,
+				3BC6DB5526B30B6F0082F6CF /* UMasked1.mlmodel */,
+				3BC6DB5726B30B780082F6CF /* UMasked2.mlmodel */,
+				3BC6DB5926B30B840082F6CF /* MaskType 1.mlmodel */,
 				3BC6DB2326B2F7FD0082F6CF /* ViewController.swift */,
 				3BC6DB2526B2F7FD0082F6CF /* Main.storyboard */,
 				3BC6DB2826B2F8000082F6CF /* Assets.xcassets */,
@@ -259,8 +286,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BC6DB2426B2F7FD0082F6CF /* ViewController.swift in Sources */,
+				3BC6DB5C26B31C1B0082F6CF /* Road Sign Object Detector 1.mlmodel in Sources */,
+				3BC6DB5A26B30B840082F6CF /* MaskType 1.mlmodel in Sources */,
 				3BC6DB2026B2F7FD0082F6CF /* AppDelegate.swift in Sources */,
+				3B5DEB5326B5BAE60060F2DC /* MaskType.mlmodel in Sources */,
+				3B5DEB5526B5F3410060F2DC /* MaskType_new Iteration5400.mlmodel in Sources */,
+				3BC6DB5426B30B050082F6CF /* SqueezeNet.mlmodel in Sources */,
+				3B5DEB5726B5FAB00060F2DC /* MaskType_new.mlmodel in Sources */,
+				3BC6DB5626B30B6F0082F6CF /* UMasked1.mlmodel in Sources */,
 				3BC6DB2226B2F7FD0082F6CF /* SceneDelegate.swift in Sources */,
+				3BC6DB5226B3086D0082F6CF /* UMaskedold.mlmodel in Sources */,
+				3BC6DB5826B30B780082F6CF /* UMasked2.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,6 +475,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GVS539BS3N;
 				INFOPLIST_FILE = "UMasked?/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -458,6 +495,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GVS539BS3N;
 				INFOPLIST_FILE = "UMasked?/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
