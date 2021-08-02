@@ -78,15 +78,21 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         let request1 = VNCoreMLRequest(model: model1) { finishedReq, err in
             guard let results = finishedReq.results as? [VNRecognizedObjectObservation] else { return }
 
-            guard let firstObservation = results.first else { return }
+            guard let firstObservation = results.first else {
+                self.modelOneLabel = "detecting"
+                return
+            }
             guard let observationLabel = firstObservation.labels.first?.identifier else { return }
+            
             self.modelOneLabel = observationLabel
             self.modelOneConf = String(firstObservation.confidence)
         }
         
         let request2 = VNCoreMLRequest(model: model2) { finishedReq, err in
-            
-            if(self.modelOneLabel == "nomask") {
+            if (self.modelOneLabel == "detecting") {
+                self.drawBoundingBox(result: .detecting)
+                return
+            } else if(self.modelOneLabel == "nomask") {
                 self.drawBoundingBox(result: .noMask)
                 return
             } else if(self.modelOneLabel == "wrong") {
