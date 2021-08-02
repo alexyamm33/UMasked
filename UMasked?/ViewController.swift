@@ -58,28 +58,15 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
 
         let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         view.layer.addSublayer(previewLayer)
+        previewLayer.frame = view.frame
+        view.layer.addSublayer(previewLayer)
         drawBoundingBox(result: .detecting)
-        
+        view.bringSubviewToFront(image!)
         let dataOutput = AVCaptureVideoDataOutput()
         dataOutput.setSampleBufferDelegate(self, queue: DispatchQueue(label: "videoQueue"))
         captureSession.addOutput(dataOutput)
         
     }
-    
-//    func showCameraFeed() {
-//        boundingLayer.frame = CGRect(x: 0,
-//                                     y: self.view.frame.height/2 - self.view.frame.width/2,
-//                                     width: self.view.frame.width,
-//                                     height: self.view.frame.width)
-//
-//        boundingLayer.transform = CATransform3DMakeRotation(270.0 / 180.0 * .pi, 0.0, 0.0, 1.0)
-//        previewLayer!.frame = view.frame
-//        previewLayer!.setNeedsDisplay()
-//        view.layer.addSublayer(previewLayer!)
-//        view.setNeedsDisplay()
-//
-//
-//    }
     
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         
@@ -100,13 +87,9 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         let request2 = VNCoreMLRequest(model: model2) { finishedReq, err in
             
             if(self.modelOneLabel == "nomask") {
-                print("Put on a mask")
-                print("----------")
                 self.drawBoundingBox(result: .noMask)
                 return
             } else if(self.modelOneLabel == "wrong") {
-                print("Adjust your mask")
-                print("----------")
                 self.drawBoundingBox(result: .adjustMask)
                 return
             }
@@ -175,19 +158,6 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         case .cloth:
             break
         }
-    }
-    
-    func updateBoundingBox(img: CGImage) {
-//        let boundingLayer = CALayer()
-//        boundingLayer.contents = img
-//
-//        boundingLayer.frame = CGRect(x: 0,
-//                                     y: self.view.frame.height/2 - self.view.frame.width/2,
-//                                     width: self.view.frame.width,
-//                                     height: self.view.frame.width)
-//
-//        boundingLayer.transform = CATransform3DMakeRotation(270.0 / 180.0 * .pi, 0.0, 0.0, 1.0)
-//        return boundingLayer
     }
 
 }
