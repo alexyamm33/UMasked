@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B249E0A26B9F5CD00E34CD7 /* OwnerEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B249E0926B9F5CD00E34CD7 /* OwnerEntryViewController.swift */; };
+		3B4C253826B9F776008FE649 /* OwnerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C253726B9F776008FE649 /* OwnerInfo.swift */; };
+		3B4C253A26BA0C5D008FE649 /* CompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C253926BA0C5D008FE649 /* CompleteViewController.swift */; };
 		3B5DEB5326B5BAE60060F2DC /* MaskType.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3B5DEB5226B5BAE60060F2DC /* MaskType.mlmodel */; };
 		3B5DEB5526B5F3410060F2DC /* MaskType_new Iteration5400.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3B5DEB5426B5F3410060F2DC /* MaskType_new Iteration5400.mlmodel */; };
 		3B5DEB5726B5FAB00060F2DC /* MaskType_new.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3B5DEB5626B5FAB00060F2DC /* MaskType_new.mlmodel */; };
@@ -43,6 +46,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3B249E0926B9F5CD00E34CD7 /* OwnerEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerEntryViewController.swift; sourceTree = "<group>"; };
+		3B4C253726B9F776008FE649 /* OwnerInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerInfo.swift; sourceTree = "<group>"; };
+		3B4C253926BA0C5D008FE649 /* CompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteViewController.swift; sourceTree = "<group>"; };
 		3B5DEB5226B5BAE60060F2DC /* MaskType.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MaskType.mlmodel; sourceTree = "<group>"; };
 		3B5DEB5426B5F3410060F2DC /* MaskType_new Iteration5400.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "MaskType_new Iteration5400.mlmodel"; sourceTree = "<group>"; };
 		3B5DEB5626B5FAB00060F2DC /* MaskType_new.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MaskType_new.mlmodel; sourceTree = "<group>"; };
@@ -126,10 +132,13 @@
 				3BC6DB5926B30B840082F6CF /* MaskType 1.mlmodel */,
 				3BC6DB2326B2F7FD0082F6CF /* ViewController.swift */,
 				3BC6DB2526B2F7FD0082F6CF /* Main.storyboard */,
+				3B249E0926B9F5CD00E34CD7 /* OwnerEntryViewController.swift */,
 				3BC6DB2826B2F8000082F6CF /* Assets.xcassets */,
 				3BC6DB2A26B2F8000082F6CF /* LaunchScreen.storyboard */,
 				3BC6DB2D26B2F8000082F6CF /* Info.plist */,
 				3B5DEB5826B70FA40060F2DC /* Image.xcassets */,
+				3B4C253726B9F776008FE649 /* OwnerInfo.swift */,
+				3B4C253926BA0C5D008FE649 /* CompleteViewController.swift */,
 			);
 			path = "UMasked?";
 			sourceTree = "<group>";
@@ -287,12 +296,15 @@
 				3BC6DB5A26B30B840082F6CF /* MaskType 1.mlmodel in Sources */,
 				3BC6DB2026B2F7FD0082F6CF /* AppDelegate.swift in Sources */,
 				3B5DEB5326B5BAE60060F2DC /* MaskType.mlmodel in Sources */,
+				3B249E0A26B9F5CD00E34CD7 /* OwnerEntryViewController.swift in Sources */,
+				3B4C253826B9F776008FE649 /* OwnerInfo.swift in Sources */,
 				3B5DEB5526B5F3410060F2DC /* MaskType_new Iteration5400.mlmodel in Sources */,
 				3B5DEB5726B5FAB00060F2DC /* MaskType_new.mlmodel in Sources */,
 				3BC6DB5626B30B6F0082F6CF /* UMasked1.mlmodel in Sources */,
 				3BC6DB2226B2F7FD0082F6CF /* SceneDelegate.swift in Sources */,
 				3BC6DB5226B3086D0082F6CF /* UMaskedold.mlmodel in Sources */,
 				3BC6DB5826B30B780082F6CF /* UMasked2.mlmodel in Sources */,
+				3B4C253A26BA0C5D008FE649 /* CompleteViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

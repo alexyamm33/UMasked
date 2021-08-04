@@ -11,13 +11,14 @@ import CoreML
 import Vision
 
 class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
+    typealias Info = OwnerInfo
     
-    
+    var ownerInfo = Info(name: "", email: "", maskReq: .cloth)
+        
     var modelOneLabel: String = ""
     var modelOneConf: String = ""
     var modelTwoLabel: String = ""
     var modelTwoConf: String = ""
-    let maskReq = LowestMaskReq.cloth
     
     @IBOutlet weak var image: UIImageView?
     let detectingImg = UIImage(named: "detecting")
@@ -26,6 +27,13 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     var correctClothImg = UIImage(named: "correctCloth")
     var correctSurgImg = UIImage(named: "correctSurg")
     let correctN95Img = UIImage(named: "correctN95")
+    
+    var totalCorrectFrames = 0
+    
+    let captureSession = AVCaptureSession()
+    
+    
+    // MARK: - LowestMaskReq
     
     enum LowestMaskReq {
         case cloth
@@ -46,9 +54,8 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        loadImages(maskReq: maskReq)
-        let captureSession = AVCaptureSession()
+
+        loadImages(maskReq: ownerInfo.maskReq)
         guard let captureDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front) else { return }
 
         guard let input = try? AVCaptureDeviceInput(device: captureDevice) else { return }
@@ -59,7 +66,6 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         view.layer.addSublayer(previewLayer)
         previewLayer.frame = view.frame
-        view.layer.addSublayer(previewLayer)
         drawBoundingBox(result: .detecting)
         view.bringSubviewToFront(image!)
         let dataOutput = AVCaptureVideoDataOutput()
@@ -71,7 +77,8 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         
         guard let pixelBuffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
-        let ciimage = CIImage(cvPixelBuffer: pixelBuffer)
+        let ciimage = CIImage(cvPixelBuffer: pixelBuffer).oriented(forExifOrientation: 6)
+        
         guard let model1 = try? VNCoreMLModel(for: UMaskedold().model ) else { return }
         guard let model2 = try? VNCoreMLModel(for: MaskType_new().model) else { return }
         
@@ -91,12 +98,15 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         let request2 = VNCoreMLRequest(model: model2) { finishedReq, err in
             if (self.modelOneLabel == "detecting") {
                 self.drawBoundingBox(result: .detecting)
+                self.mutateFrames(result: .detecting)
                 return
             } else if(self.modelOneLabel == "nomask") {
                 self.drawBoundingBox(result: .noMask)
+                self.mutateFrames(result: .noMask)
                 return
             } else if(self.modelOneLabel == "wrong") {
                 self.drawBoundingBox(result: .adjustMask)
+                self.mutateFrames(result: .adjustMask)
                 return
             }
             guard let results = finishedReq.results as? [VNRecognizedObjectObservation] else { return }
@@ -109,12 +119,16 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
             
             if (self.modelTwoLabel == "other") {
                 self.drawBoundingBox(result: .correctOther)
+                self.mutateFrames(result: .correctOther)
             } else if (self.modelTwoLabel == "n95") {
                 self.drawBoundingBox(result: .correctN95)
+                self.mutateFrames(result: .correctN95)
             } else if (self.modelTwoLabel == "surgical") {
                 self.drawBoundingBox(result: .correctSurg)
+                self.mutateFrames(result: .correctSurg)
             } else {
                 self.drawBoundingBox(result: .detecting)
+                self.mutateFrames(result: .detecting)
             }
 
         }
@@ -125,9 +139,6 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     }
     
     func drawBoundingBox(result: DetectionResults) {
-        print(self.modelOneLabel, self.modelOneConf)
-        print(self.modelTwoLabel, self.modelTwoConf)
-        print("----------")
         let newImage: UIImage?
         switch result {
         case .noMask:
@@ -146,11 +157,9 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         DispatchQueue.main.async {
             self.image?.image = newImage
             self.image?.frame = CGRect(x: 0,
-                                         y: self.view.frame.height/2 - self.view.frame.width/2,
+                                       y: self.view.frame.height/2 - self.view.frame.width/2,
                                          width: self.view.frame.width,
                                          height: self.view.frame.width)
-            
-            self.image?.transform = CGAffineTransform(rotationAngle: CGFloat(3 * Double.pi/2))
         }
     }
     
@@ -165,6 +174,64 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
             break
         }
     }
+    
+    func mutateFrames(result: DetectionResults) {
+        switch ownerInfo.maskReq {
+        case .cloth:
+            if (result == .adjustMask || result == .noMask) {
+                totalCorrectFrames = 0
+            } else if (result != .detecting) {
+                totalCorrectFrames = totalCorrectFrames + 1
+            }
+        case .n95:
+            if (result == .correctN95) {
+                totalCorrectFrames = totalCorrectFrames + 1
+            } else if (result != .detecting){
+                totalCorrectFrames = 0
+            }
+        case .surgical:
+            if (result == .correctN95 || result == .correctSurg) {
+                totalCorrectFrames = totalCorrectFrames + 1
+            } else if (result != .detecting) {
+                totalCorrectFrames = 0
+            }
+        }
+        if (totalCorrectFrames > 5) {
+            // TODO: Segue
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "goToFinal", sender: self)
+                self.captureSession.stopRunning()
 
+                if let inputs = self.captureSession.inputs as? [AVCaptureDeviceInput] {
+                    for input in inputs {
+                        self.captureSession.removeInput(input)
+                    }
+                }
+            }
+            
+        }
+    }
+    
+    func stopCaptureSession() {
+        DispatchQueue.main.async {
+
+//            self.view.layer.sublayers?.forEach { $0.removeFromSuperlayer() }
+////            self.view.layer.removeFromSuperlayer()
+//            self.performSegue(withIdentifier: "goToFinal", sender: self)
+        }
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToFinal"{
+//            let destinationVC = segue.destination as! CompleteViewController
+//            destinationVC.ownerInfo = ownerInfo ?? Info(name: "", email: "", maskReq: .cloth)
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        captureSession.stopRunning()
+    }
 }
 
