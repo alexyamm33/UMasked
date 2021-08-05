@@ -199,39 +199,18 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         if (totalCorrectFrames > 5) {
             // TODO: Segue
             DispatchQueue.main.async {
-                self.performSegue(withIdentifier: "goToFinal", sender: self)
+                self.totalCorrectFrames = 0
                 self.captureSession.stopRunning()
-
-                if let inputs = self.captureSession.inputs as? [AVCaptureDeviceInput] {
-                    for input in inputs {
-                        self.captureSession.removeInput(input)
-                    }
-                }
+                let alert = UIAlertController(title: "Successfully Checked In", message: "Your information will be sent to the host", preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: {_ in
+                    self.captureSession.startRunning()
+                }))
+                self.present(alert, animated: true, completion: nil)
+                
             }
             
         }
     }
-    
-    func stopCaptureSession() {
-        DispatchQueue.main.async {
 
-//            self.view.layer.sublayers?.forEach { $0.removeFromSuperlayer() }
-////            self.view.layer.removeFromSuperlayer()
-//            self.performSegue(withIdentifier: "goToFinal", sender: self)
-        }
-        
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goToFinal"{
-//            let destinationVC = segue.destination as! CompleteViewController
-//            destinationVC.ownerInfo = ownerInfo ?? Info(name: "", email: "", maskReq: .cloth)
-        }
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        captureSession.stopRunning()
-    }
 }
 

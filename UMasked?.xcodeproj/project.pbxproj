@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		3B249E0A26B9F5CD00E34CD7 /* OwnerEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B249E0926B9F5CD00E34CD7 /* OwnerEntryViewController.swift */; };
 		3B4C253826B9F776008FE649 /* OwnerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C253726B9F776008FE649 /* OwnerInfo.swift */; };
-		3B4C253A26BA0C5D008FE649 /* CompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C253926BA0C5D008FE649 /* CompleteViewController.swift */; };
+		3B4C253F26BC229D008FE649 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B4C253E26BC229D008FE649 /* Assets.xcassets */; };
 		3B5DEB5326B5BAE60060F2DC /* MaskType.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3B5DEB5226B5BAE60060F2DC /* MaskType.mlmodel */; };
 		3B5DEB5526B5F3410060F2DC /* MaskType_new Iteration5400.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3B5DEB5426B5F3410060F2DC /* MaskType_new Iteration5400.mlmodel */; };
 		3B5DEB5726B5FAB00060F2DC /* MaskType_new.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3B5DEB5626B5FAB00060F2DC /* MaskType_new.mlmodel */; };
@@ -18,7 +18,6 @@
 		3BC6DB2226B2F7FD0082F6CF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC6DB2126B2F7FD0082F6CF /* SceneDelegate.swift */; };
 		3BC6DB2426B2F7FD0082F6CF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC6DB2326B2F7FD0082F6CF /* ViewController.swift */; };
 		3BC6DB2726B2F7FD0082F6CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BC6DB2526B2F7FD0082F6CF /* Main.storyboard */; };
-		3BC6DB2926B2F8000082F6CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BC6DB2826B2F8000082F6CF /* Assets.xcassets */; };
 		3BC6DB2C26B2F8000082F6CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BC6DB2A26B2F8000082F6CF /* LaunchScreen.storyboard */; };
 		3BC6DB3726B2F8000082F6CF /* UMasked_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC6DB3626B2F8000082F6CF /* UMasked_Tests.swift */; };
 		3BC6DB4226B2F8000082F6CF /* UMasked_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC6DB4126B2F8000082F6CF /* UMasked_UITests.swift */; };
@@ -48,7 +47,7 @@
 /* Begin PBXFileReference section */
 		3B249E0926B9F5CD00E34CD7 /* OwnerEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerEntryViewController.swift; sourceTree = "<group>"; };
 		3B4C253726B9F776008FE649 /* OwnerInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerInfo.swift; sourceTree = "<group>"; };
-		3B4C253926BA0C5D008FE649 /* CompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteViewController.swift; sourceTree = "<group>"; };
+		3B4C253E26BC229D008FE649 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3B5DEB5226B5BAE60060F2DC /* MaskType.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MaskType.mlmodel; sourceTree = "<group>"; };
 		3B5DEB5426B5F3410060F2DC /* MaskType_new Iteration5400.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "MaskType_new Iteration5400.mlmodel"; sourceTree = "<group>"; };
 		3B5DEB5626B5FAB00060F2DC /* MaskType_new.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MaskType_new.mlmodel; sourceTree = "<group>"; };
@@ -58,7 +57,6 @@
 		3BC6DB2126B2F7FD0082F6CF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		3BC6DB2326B2F7FD0082F6CF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3BC6DB2626B2F7FD0082F6CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		3BC6DB2826B2F8000082F6CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3BC6DB2B26B2F8000082F6CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3BC6DB2D26B2F8000082F6CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3BC6DB3226B2F8000082F6CF /* UMasked?Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "UMasked?Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,14 +129,13 @@
 				3BC6DB5726B30B780082F6CF /* UMasked2.mlmodel */,
 				3BC6DB5926B30B840082F6CF /* MaskType 1.mlmodel */,
 				3BC6DB2326B2F7FD0082F6CF /* ViewController.swift */,
+				3B4C253E26BC229D008FE649 /* Assets.xcassets */,
 				3BC6DB2526B2F7FD0082F6CF /* Main.storyboard */,
 				3B249E0926B9F5CD00E34CD7 /* OwnerEntryViewController.swift */,
-				3BC6DB2826B2F8000082F6CF /* Assets.xcassets */,
 				3BC6DB2A26B2F8000082F6CF /* LaunchScreen.storyboard */,
 				3BC6DB2D26B2F8000082F6CF /* Info.plist */,
 				3B5DEB5826B70FA40060F2DC /* Image.xcassets */,
 				3B4C253726B9F776008FE649 /* OwnerInfo.swift */,
-				3B4C253926BA0C5D008FE649 /* CompleteViewController.swift */,
 			);
 			path = "UMasked?";
 			sourceTree = "<group>";
@@ -266,7 +263,7 @@
 			files = (
 				3BC6DB2C26B2F8000082F6CF /* LaunchScreen.storyboard in Resources */,
 				3B5DEB5926B70FA40060F2DC /* Image.xcassets in Resources */,
-				3BC6DB2926B2F8000082F6CF /* Assets.xcassets in Resources */,
+				3B4C253F26BC229D008FE649 /* Assets.xcassets in Resources */,
 				3BC6DB2726B2F7FD0082F6CF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -304,7 +301,6 @@
 				3BC6DB2226B2F7FD0082F6CF /* SceneDelegate.swift in Sources */,
 				3BC6DB5226B3086D0082F6CF /* UMaskedold.mlmodel in Sources */,
 				3BC6DB5826B30B780082F6CF /* UMasked2.mlmodel in Sources */,
-				3B4C253A26BA0C5D008FE649 /* CompleteViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
