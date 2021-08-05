@@ -202,7 +202,15 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
                 self.totalCorrectFrames = 0
                 self.captureSession.stopRunning()
                 let alert = UIAlertController(title: "Successfully Checked In", message: "Your information will be sent to the host", preferredStyle: UIAlertController.Style.alert)
+                alert.addTextField { textField in
+                    textField.placeholder = "Your Name"
+                }
+                alert.addTextField { textField in
+                    textField.placeholder = "Your Email"
+                }
+
                 alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: {_ in
+                    // TODO: Attach email server
                     self.captureSession.startRunning()
                 }))
                 self.present(alert, animated: true, completion: nil)
