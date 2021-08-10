@@ -196,21 +196,23 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
                 totalCorrectFrames = 0
             }
         }
-        if (totalCorrectFrames > 5) {
-            // TODO: Segue
+        if (totalCorrectFrames > 3) {
+            
             DispatchQueue.main.async {
                 self.totalCorrectFrames = 0
                 self.captureSession.stopRunning()
                 let alert = UIAlertController(title: "Successfully Checked In", message: "Your information will be sent to the host", preferredStyle: UIAlertController.Style.alert)
+                
                 alert.addTextField { textField in
                     textField.placeholder = "Your Name"
                 }
                 alert.addTextField { textField in
-                    textField.placeholder = "Your Email"
+                    textField.placeholder = "Your Phone"
                 }
 
                 alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: {_ in
                     // TODO: Attach email server
+                    self.sendEmail(name: alert.textFields?[0].text, phone: alert.textFields?[1].text)
                     self.captureSession.startRunning()
                 }))
                 self.present(alert, animated: true, completion: nil)
@@ -218,6 +220,16 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
             }
             
         }
+    }
+    
+    func sendEmail(name: String?, phone: String?) {
+        
+        let visitorName = name ?? "A visitor"
+        let visitorNumber = phone ?? ""
+        let header = "UMasked: " + visitorName + " has checked in."
+        let body = "Name: " + visitorName + "\nNumber: " + visitorNumber
+        let robot = EmailRobot(receiverName: ownerInfo.ownerName, receiverEmail: ownerInfo.ownerEmail, robotName: "UMasked Check-In App", robotEmail: "umaskedrobot@gmail.com", robotPassword: "plokijuhygtfrdeswa", header: header, body: body)
+        robot.sendEmail()
     }
 
 }

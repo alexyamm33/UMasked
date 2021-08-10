@@ -1,0 +1,6 @@
+framework module Pods_UMasked_ {
+  umbrella header "Pods-UMasked?-umbrella.h"
+
+  export *
+  module * { export * }
+}
